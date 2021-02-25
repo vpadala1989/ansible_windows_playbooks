@@ -1,0 +1,10 @@
+- name: install prereq
+  hosts: winhost
+  tags: prereq
+  become: true
+  become_method: runas
+  become_user: administrator
+  gather_facts: no
+  roles:
+  - role: pre_req
+    tags: pre_req

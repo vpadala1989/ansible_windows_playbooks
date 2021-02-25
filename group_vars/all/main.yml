@@ -1,0 +1,7 @@
+---
+#variables
+artifactory_server: https://vpadala.jfrog.io/artifactory
+artifactory_repository: /softwares/windows
+artifactory_username: 
+artifactory_password: 
+

@@ -1,0 +1,18 @@
+---
+- name: downloading ssms
+  win_get_url:
+      url: '{{ ssms_url }}'
+      dest: '{{ setup_folder }}'
+      url_username: '{{ artifactory_username }}'
+      url_password: '{{ artifactory_password }}'
+      force: no
+    
+  tags: ssms
+
+
+- name: Installing SQL management studio
+  #win_shell: msiexec.exe /i {{setup_folder}}\{{ ssms_filename }} /qn 
+  win_command: '{{setup_folder}}\{{ ssms_filename }} /quiet'
+ 
+
+

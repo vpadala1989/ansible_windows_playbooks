@@ -1,0 +1,18 @@
+---
+- name: Download Visual Studio 2010 Tools for Office Runtime
+  win_get_url:
+      url: "{{ vstudio_rul }}"
+      dest: "{{ setup_folder }}"
+      url_username: '{{ artifactory_username }}'
+      url_password: '{{ artifactory_password }}'
+      force: no
+    
+  tags: Visual Studio 2010 Tools for Office Runtime
+
+- name: Installing Visual Studio 2010 Tools for Office Runtime
+  ansible.windows.win_package:
+     path: "{{setup_folder}}\\{{ vstudio_filename }}"
+     arguments: /install /passive /norestart
+     state: present
+  
+

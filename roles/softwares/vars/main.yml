@@ -1,0 +1,13 @@
+---
+PBIDesktop_filename: PBIDesktopRS_x64.msi
+ssms_filename: SSMS-Setup-ENU.exe
+PBIserver_filename: PowerBIReportServer.exe
+slsv2_filename: SetupSLSV2.msi
+
+#artifactory URL
+PBIDesktop_url: '{{ artifactory_server }}/{{ artifactory_repository }}/{{ PBIDesktop_filename }}'
+ssms_url: '{{ artifactory_server }}/{{ artifactory_repository }}/{{ ssms_filename }}'
+PBIserver_url: '{{ artifactory_server }}/{{ artifactory_repository }}/softwares/{{ PBIserver_filename }}'
+slsv2_url: '{{ artifactory_server }}/{{ artifactory_repository }}/softwares/{{ slsv2_filename }}'
+# Folder
+setup_folder: 'C:\Setup'

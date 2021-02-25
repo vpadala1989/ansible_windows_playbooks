@@ -1,0 +1,27 @@
+---
+- name: check if Microsoft Visual C++ 2010 Redistributable installed or not
+  win_reg_stat:
+   path: HKLM:\SOFTWARE\WOW6432Node\Microsoft\VisualStudio\10.0\VC\VCredist\x64
+   name: Installed
+  register: Install_status
+
+- name: Download Microsoft Visual C++ 2010 Redistributable
+  win_get_url:
+      url: "{{ visualc_url }}"
+      dest: "{{ setup_folder }}"
+      url_username: '{{ artifactory_username }}'
+      url_password: '{{ artifactory_password }}'
+      force: no
+  when: not Install_status.exists
+    
+  tags: Microsoft Visual C++ 2010 Redistributable
+
+- name: Installing Microsoft Visual C++ 2010 Redistributable
+  ansible.windows.win_package:
+     path: "{{setup_folder}}\\{{ visualc_filename }}"
+     product_id: visualc++
+     state: present
+     arguments: /install /passive
+  when: not Install_status.exists
+  
+

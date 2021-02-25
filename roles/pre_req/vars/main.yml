@@ -1,0 +1,15 @@
+dotnet47_filename: Microsoft .NET Framework 4.7.2.exe
+visualc_filename: Microsoft Visual C++ 2010 Redistributable.exe
+vstudio_filename: Visual Studio 2010 Tools for Office Runtime.exe
+database_engine_filename: AccessDatabaseEngine_X64.exe
+database_engine2016_filename: AccessDatabaseEngine_2016_X64.exe
+
+#artifactory URL
+database_engine2016_url: '{{ artifactory_server }}/{{ artifactory_repository }}/{{ database_engine2016_filename }}'
+dotnet47_url: '{{ artifactory_server }}/{{ artifactory_repository }}/{{ dotnet47_filename }}'
+visualc_url: '{{ artifactory_server }}/{{ artifactory_repository }}/{{ visualc_filename }}'
+vstudio_rul: '{{ artifactory_server }}/{{ artifactory_repository }}/{{ vstudio_filename }}'
+database_engine_url: '{{ artifactory_server }}/{{ artifactory_repository }}/ade/AccessDatabaseEngine_X64.exe'
+
+# Folder
+setup_folder: 'C:\Setup'

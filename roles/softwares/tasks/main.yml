@@ -1,0 +1,3 @@
+---
+- include: slsv2.yml
+  tags : slsv2

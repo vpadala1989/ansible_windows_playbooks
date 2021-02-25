@@ -1,0 +1,22 @@
+---
+- name: downloading powerbiDesktop
+  win_get_url:
+      url: '{{ PBIDesktop_url }}'
+      dest: '{{ setup_folder }}'
+      url_username: '{{ artifactory_username }}'
+      url_password: '{{ artifactory_password }}'
+      force: no
+    
+  tags: powerbiDesktop
+
+#- name: Installing powerbiDesktop
+ # ansible.windows.win_package:
+  #   path: "{{ setup_folder }}\\{{ PBIDesktop_filename }}"
+   #  product_id: powerbi
+    # arguments: /install /passive /norestart
+     #state: present
+- name: Installing powerbiDesktop
+  win_shell: msiexec.exe /i {{setup_folder}}\{{ PBIDesktop_filename }} /qn ACCEPT_EULA=1
+  #win_command: '{{setup_folder}}\{{ PBIDesktop_filename }} /qn'
+
+

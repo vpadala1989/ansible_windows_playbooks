@@ -1,0 +1,5 @@
+---
+- include: visualc.yml
+  tags : visualc
+- include: vstudio.yml
+  tags : vstudio

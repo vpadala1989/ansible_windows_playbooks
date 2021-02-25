@@ -1,0 +1,20 @@
+---
+- name: downloading powerbi SLSv2
+  win_get_url:
+      url: '{{ slsv2_url }}'
+      dest: '{{ setup_folder }}'
+      url_username: '{{ artifactory_username }}'
+      url_password: '{{ artifactory_password }}'
+      force: no
+    
+  tags: powerbi SLSv2
+
+- name: Installing SLSv2
+  #win_shell: msiexec.exe /i {{setup_folder}}\{{ PBIserver_filename }} /quiet /IAcceptLicenseTerms /Edition=Eval
+  #win_command: '{{setup_folder}}\{{ PBIserver_filename }} /quiet /IAcceptLicenseTerms /Edition=Eval'
+  ansible.windows.win_package:
+     path: "{{ setup_folder }}\\{{ slsv2_filename }}"
+     product_id: powerbiserver
+     arguments: /quiet /IAcceptLicenseTerms /Edition=Eval
+
+

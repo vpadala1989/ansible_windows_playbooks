@@ -1,0 +1,13 @@
+---
+- name: Download AccessDatabaseEngine_X64
+  win_get_url:
+      url: "{{ database_engine_url }}"
+      dest: "{{ setup_folder }}"
+      url_username: '{{ artifactory_username }}'
+      url_password: '{{ artifactory_password }}'
+      force: no
+    
+  tags: Microsoft AccessDatabaseEngine_X64
+
+- name: install AccessDatabaseEngine_X64
+  win_shell: msiexec.exe /i {{setup_folder}}\{{ database_engine_filename }} /qn /norestart

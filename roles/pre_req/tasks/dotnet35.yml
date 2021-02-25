@@ -1,0 +1,12 @@
+---
+- name: create config's files folder
+  win_file:
+      path: '{{ setup_folder }}'
+      state: directory
+  args:
+      creates: '{{ setup_folder }}'
+- name: Install NET-Framework-Core from file
+  win_feature:
+    name: NET-Framework-Core
+    source: C:\windows\winsxs
+    state: present
